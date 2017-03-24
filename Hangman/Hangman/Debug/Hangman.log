@@ -1,0 +1,4 @@
+﻿  hangmanMain.cpp
+c:\users\chapkailo\documents\github\hangman-console\hangman\hangman\hangmanmain.cpp(56): warning C4018: '<': signed/unsigned mismatch
+  Hangman.vcxproj -> C:\Users\Chapkailo\Documents\GitHub\Hangman-Console\Hangman\Debug\Hangman.exe
+  Hangman.vcxproj -> C:\Users\Chapkailo\Documents\GitHub\Hangman-Console\Hangman\Debug\Hangman.pdb (Full PDB)

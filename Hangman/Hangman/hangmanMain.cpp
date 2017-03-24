@@ -1,3 +1,5 @@
+//Program Hangman
+//Playing game the guessing letters 
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,7 +15,7 @@ int main()
 	char playAgain = 'n';
 	do
 	{
-		const int MAX_WRONG = 8;//допустима кількість помилок
+		const int MAX_WRONG = 8;//permissible number of errors
 		vector<string> words;
 		words.push_back("AUSTRALIA");
 		words.push_back("FOOTBALL");
@@ -23,10 +25,10 @@ int main()
 
 		srand(static_cast<unsigned int>(time(NULL)));
 		random_shuffle(words.begin(), words.end());
-		const string THE_WORD = words[0];//слово для відгадування
-		int wrong = 0;//кількість помилок
-		string guessed(THE_WORD.size(), '-');//частина слова, відкрита на даний момент
-		string used = "";//вже використані букви
+		const string THE_WORD = words[0];//word to guess
+		int wrong = 0;//errors
+		string guessed(THE_WORD.size(), '-');//part of the word that open at the moment
+		string used = "";//already used letters
 		cout << "\tWelcome to Hangman\n" << endl;
 
 		//main cycle
@@ -40,19 +42,19 @@ int main()
 			char guess;
 			cout << "Enter you guess:" << endl;
 			cin >> guess;
-			guess = toupper(guess);//перевід у верхній регістр
-			while (used.find(guess) != string::npos)//якщо вже вводили таку букву
+			guess = toupper(guess);//transfer to uppercase
+			while (used.find(guess) != string::npos)//if this letter is already entered
 			{
 				cout << "You have already guessed " << guess << endl;
 				cout << "Enter you guess:" << endl;
 				cin >> guess;
-				guess = toupper(guess);//перевід у верхній регістр
+				guess = toupper(guess);//transfer to uppercase
 			}
 			used += guess;
-			if (THE_WORD.find(guess) != string::npos)//якщо буква вгадана
+			if (THE_WORD.find(guess) != string::npos)//if the letter guessed
 			{
 				cout << "That's right! " << guess << " is in the word." << endl;
-				//оновити змінну guessed, включивши вгадану букву
+				//update variable "guessed" including the letters
 				for (int i = 0; i < THE_WORD.length(); i++)
 				{
 					if (THE_WORD[i] == guess)
